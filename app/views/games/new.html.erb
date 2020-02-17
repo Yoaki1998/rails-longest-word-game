@@ -1,0 +1,14 @@
+<h1>New Game</h1>
+<style>.li {display: inline-block;}</style>
+<ul>
+<% @randletter.each do |x| %>
+  <li class="li"><%= x %></li>
+<% end %>
+</ul>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :randletter, @randletter %>
+  <input type="text" name="word" placeholder="What is the longest word u can find">
+  <input type="submit">
+</form>
